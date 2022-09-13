@@ -1,9 +1,9 @@
 import React from "react";
 
-function Name() {
+function Name(props) {
     return(
         <React.Fragment>
-            <li>Chethana</li>
+            <li>{props.name} - {props.age}(age)</li>
         </React.Fragment>
     )
 }
