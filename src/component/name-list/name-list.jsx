@@ -5,6 +5,7 @@ function NameList() {
 
     const NameList = [
     {
+        id:1,
         name: {
             title: "Miss",
             first: "Jennie 01",
@@ -28,6 +29,7 @@ function NameList() {
         },
     },
     {
+        id:2,
         name: {
             title: "Miss",
             first: "Jennie",
@@ -54,13 +56,14 @@ function NameList() {
     const nameListComponent = () => {
         return NameList.map(X =>{
             return(<Name 
-            firstName={`${X.name.first} ${X.name.last}`} 
-            city={X.location.city}
-            country={X.location.country}
-            email={X.email}
-            age={X.dob.age}
-            picture={X.picture.medium}
-            dob={X.dob.date}></Name>)
+                key={X.id}
+                firstName={`${X.name.first} ${X.name.last}`} 
+                city={X.location.city}
+                country={X.location.country}
+                email={X.email}
+                age={X.dob.age}
+                picture={X.picture.medium}
+                dob={X.dob.date}></Name>)
         })
     }
 
