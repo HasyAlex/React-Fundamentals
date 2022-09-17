@@ -12,7 +12,7 @@ function Name(props) {
                 </div>
                 <div className="col-auto">
                     <h4>{props.firstName}</h4>
-                    <p> {props.country} | {props.city}</p>
+                    <p>{props.country} | {props.city}</p>
                     <p>Email: {props.email}</p>
                     <p>Age: {props.age}</p>
                     <p>Birthday: {new Intl.DateTimeFormat('en-GB').format(new Date(props.dob))}</p>
