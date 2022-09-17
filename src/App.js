@@ -1,10 +1,13 @@
-import './App.css';
+import React from "react";
 import NameList from './component/name-list/name-list';
+import HeaderBar from "./component/HeaderBar/HeaderBar";
+import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <NameList/>      
+    <div className="">
+      <HeaderBar/>
+      <NameList/>     
     </div>
   );
 }

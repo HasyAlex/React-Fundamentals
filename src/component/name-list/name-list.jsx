@@ -1,6 +1,8 @@
 import React from "react";
 import Name from "../name/name";
 
+import "./name-list.css";
+
 function NameList() {
 
     const NameList = [
@@ -69,10 +71,9 @@ function NameList() {
 
     return (
         <React.Fragment>
-            <h1>SLIIT</h1>
-            <ul>
-                {nameListComponent()}
-            </ul>
+            <div className="container mt-4">
+              <ul className="list-group">{nameListComponent()}</ul>  
+            </div>
         </React.Fragment>
     )
 }
