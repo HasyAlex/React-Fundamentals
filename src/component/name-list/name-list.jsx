@@ -1,10 +1,11 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Name from "../name/name";
 
 import "./name-list.css";
 
 function NameList() {
 
+    const [buttonClick, setButtonClick] = useState(new Date());
     const [nameList, setNameList] = useState([{
         id:1,
         name: {
@@ -28,31 +29,17 @@ function NameList() {
             medium: "https://randomuser.me/api/portraits/med/men/75.jpg",
             thumbnail: "https://randomuser.me/api/portraits/thumb/men/75.jpg"
         },
-    },
-    {
-        id:2,
-        name: {
-            title: "Miss",
-            first: "Jennie",
-            last: "Nichols"
-        },
-        location: {
-            city: "Billings",
-            state: "Michigan",
-            country: "United States",
-            postcode: "63104"
-        },
-        email: "jennie.nichols@example.com",
-        dob :{
-            date: "1992-03-08T15:13:16.688Z",
-            age: 30
-        },
-        picture: {
-            large: "https://randomuser.me/api/portraits/men/11.jpg",
-            medium: "https://randomuser.me/api/portraits/med/men/11.jpg",
-            thumbnail: "https://randomuser.me/api/portraits/thumb/men/11.jpg"
-        },
     }]);
+
+    useEffect(()=>{
+        fetch('https://randomuser.me/api')
+        .then((response) => {
+            return response.json();
+        })
+        .then((responseData) => {
+            setNameList(nameList => [...nameList,responseData.results[0]]);
+        });
+    },[buttonClick]); 
 
     const nameListComponent = () => {
         return nameList.map(X =>{
@@ -69,34 +56,7 @@ function NameList() {
     }
 
     const addUserHandler = () =>{
-        const newUser = {
-            id:3,
-            name: {
-                title: "Miss",
-                first: "Vanessa",
-                last: "Fidjeland"
-            },
-            location: {
-                city: "Billings",
-                state: "Michigan",
-                country: "Sri Lanaka",
-                postcode: "81000"
-            },
-            email: "jennie.nichols@example.com",
-            dob :{
-               date: "1992-03-08T15:13:16.688Z",
-                age: 30
-            },
-            picture: {
-                large: "https://randomuser.me/api/portraits/men/13.jpg",
-                medium: "https://randomuser.me/api/portraits/med/men/13.jpg",
-                thumbnail: "https://randomuser.me/api/portraits/thumb/men/13.jpg"
-            },
-        }
-        
-        setNameList(nameList => [...nameList,newUser]); //setNameList(nameList => nameList.concat(newUser));
-        
-    
+      setButtonClick(new Date());    
     }
 
     return (
