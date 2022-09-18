@@ -1,14 +1,20 @@
 import React from "react";
-import NameList from './component/name-list/name-list';
+import NameList from './component/Pages/NameList/NameList';
 import HeaderBar from "./component/HeaderBar/HeaderBar";
-import './App.css';
+import Home from "./component/Pages/Home/Home"
+import Help from "./component/Pages/Help/Help"
+import { BrowserRouter, Route ,Routes } from "react-router-dom";
 
 function App() {
   return (
-    <div className="">
+      <BrowserRouter>
       <HeaderBar/>
-      <NameList/>     
-    </div>
+      <Routes>
+          <Route path="/" element={<Home/>} />
+          <Route path="/names" element={<NameList/>} />
+          <Route path="/help" element={<Help/>} />
+        </Routes>
+      </BrowserRouter>     
   );
 }
 

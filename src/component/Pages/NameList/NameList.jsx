@@ -1,13 +1,11 @@
 import React, {useEffect, useState} from "react";
-import Name from "../name/name";
-
-import "./name-list.css";
+import Name from "./Name/Name";
 
 function NameList() {
 
     const [buttonClick, setButtonClick] = useState(new Date());
     const [nameList, setNameList] = useState([{
-        id:1,
+        id:new Date(),
         name: {
             title: "Miss",
             first: "Olivia",

@@ -1,7 +1,5 @@
 import React from "react";
 
-import './name.css'; 
-
 function Name(props) {
     return(
         <li className="list-group-item">
